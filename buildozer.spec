@@ -19,7 +19,6 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 0.1
 
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy
 
 # (list) Supported orientations
@@ -37,17 +36,13 @@ android.api = 33
 # (int) Minimum API your APK will support
 android.minapi = 21
 
-# (str) Android NDK version to use
-android.ndk = 25.2.9519653
+# (str) Android NDK version to use (إصدار مستقر ومضمون التحميل)
+android.ndk = 25b
 
-# (bool) Use --private data dir (True) or --dir public storage (False)
-android.private_storage = True
-
-# (list) List of architectures to build for
-# تم تحديد معمارية واحدة فقط لتفادي التعليق وتخفيف استهلاك الذاكرة
+# (list) List of architectures to build for (معمارية واحدة فقط لمنع التعليق)
 android.archs = arm64-v8a
 
-# (bool) Accept SDK license
+# (bool) Accept SDK license automatically
 android.accept_sdk_license = True
 
 [buildozer]
