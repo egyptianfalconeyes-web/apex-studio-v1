@@ -1,57 +1,73 @@
+
 [app]
 
 # (str) Title of your application
-title = Apex Studio
+title = Apex AI Studio
 
 # (str) Package name
 package.name = apexstudio
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = org.innovators
 
 # (str) Source code where the main.py live
 source.dir = .
 
-# (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,ttf
-
-# (str) Application versioning (method 1)
-version = 0.1
+# (list) Source files to include (include main.py and any required extensions)
+source.include_exts = py,png,jpg,kv,atlas
 
 # (list) Application requirements
-requirements = python3,kivy
+# Note: Set to python3,kivy,pyjnius for stability with Android APIs
+requirements = python3,kivy,pyjnius
 
-# (list) Supported orientations
-orientation = portrait
+# (str) Application versioning
+version = 0.1
 
-# (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
+# (list) Permissions required by the app
+# Android permissions
+# android.permissions = INTERNET
 
-# (list) Permissions
-android.permissions = INTERNET, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
-
-# (int) Target Android API
+# (int) Target Android API, should be 33 for modern compatibility
 android.api = 33
 
 # (int) Minimum API your APK will support
 android.minapi = 21
 
-# (str) Android NDK version to use (إصدار مستقر ومضمون التحميل)
+# (str) Android NDK version to use
 android.ndk = 25b
 
-# (list) List of architectures to build for (معمارية واحدة فقط لمنع التعليق)
+# (bool) If True, then skip trying to update the SDK
+android.skip_update = False
+
+# (bool) If True, automatically accept SDK licenses
+android.accept_sdk_license = True
+
+# (str) The Android arch to build for
+# Arm64-v8a is standard for modern devices
 android.archs = arm64-v8a
 
-# (bool) Accept SDK license automatically
-android.accept_sdk_license = True
+# (bool) Enable AndroidX support
+android.enable_androidx = True
+
+# (list) List of Java classes to add to the compilation class path
+# android.add_jars = foo.jar
+
+# (list) Gradle dependencies to add
+# android.gradle_dependencies =
+
+# (bool) Indicate if the application should be fullscreen or not
+fullscreen = 0
 
 [buildozer]
 
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
 log_level = 2
 
-# (str) Path to build artifact storage, absolute or relative to spec file
-build_dir = ./.buildozer
+# (int) Display warning if buildozer is run as root (0 = false, 1 = true)
+warn_on_root = 0
 
-# (str) Path to build output (i.e. .apk, .aab)
-bin_dir = ./bin
+# (str) Path to build artifact storage, leave default
+# build_dir = ./.buildozer
+
+# (str) Path to build output (where .apk will be saved)
+# bin_dir = ./bin
